@@ -15,7 +15,7 @@ import org.beryx.textio.TextIoFactory;
 
 import com.john.common.FileUtil;
 import com.john.common.WinRegistry;
-
+ 
 /**
  * DTool APP v0.1
  *
@@ -30,13 +30,14 @@ public class App {
     final static String KEY_NAME = "KeyValue";
     final static String IV_NAME = "IVvalue";
     final static String ALGORITHM = "AES/CBC/NoPadding"; //ZeroBytePadding
+  
 
     public static void main(String[] args)
             throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, IOException, GeneralSecurityException {
         TextIO textIO = TextIoFactory.getTextIO();
 
         showMsg(textIO, "DTool APP v0.1");
-
+ 
         byte[] AESKey = WinRegistry.readByte(
                 WinRegistry.HKEY_CURRENT_USER, REG_PATH, KEY_NAME);
         System.out.println("Windows Distribution = " + AESKey);
