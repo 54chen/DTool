@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+/.apt_generated
+/.apt_generated_tests
+/.vscode
