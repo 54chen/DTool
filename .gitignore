@@ -71,8 +71,6 @@ instance/
 # Sphinx documentation
 docs/_build/
 
-# PyBuilder
-target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
@@ -131,3 +129,15 @@ dmypy.json
 /.apt_generated
 /.apt_generated_tests
 /.vscode
+target/classes/log4j.xml
+target/classes/com/john/App.class
+target/classes/com/john/common/FileUtil.class
+target/classes/com/john/common/WinRegistry.class
+target/maven-archiver/pom.properties
+target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+target/surefire-reports/com.john.AppTest.txt
+target/surefire-reports/TEST-com.john.AppTest.xml
+target/test-classes/com/john/AppTest.class
