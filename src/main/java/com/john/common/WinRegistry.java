@@ -23,6 +23,7 @@ public class WinRegistry {
 
       String result = reader.getResult();
       int p = result.indexOf(REGSTR_TOKEN);
+      System.out.println(result);
 
       if (p == -1)
         return null;
