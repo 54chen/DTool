@@ -51,7 +51,11 @@ public class App {
         for (String string : from) {
             showMsg(textIO, string);
             showMsg(textIO, to.get(i));
-            byte[] content = "".getBytes(); //?
+            byte[] content = FileUtil.readFile(string);
+            if (content == null) {
+                showMsg(textIO, string+" is not exsited!");
+                continue;
+            }
             decrypt(AESKey, IV, content);
         }
 
