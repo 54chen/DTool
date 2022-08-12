@@ -31,6 +31,7 @@ public class WinRegistry {
       result = result.substring(p + REGSTR_TOKEN.length()).trim();
       return hexStringToByteArray(result);
     } catch (Exception e) {
+      System.out.println(e);
       return null;
     }
   }
