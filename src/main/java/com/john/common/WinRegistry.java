@@ -23,7 +23,7 @@ public class WinRegistry {
       String[] cmd = { REGQUERY_UTIL, path, "/v", name };
       System.out.println(String.join(" ", cmd));
       Process process = Runtime.getRuntime().exec(cmd);
-      StreamReader reader = new StreamReader(process.getInputStream());
+      //StreamReader reader = new StreamReader(process.getInputStream());
 
       BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
       while ((line = input.readLine()) != null) {
@@ -38,11 +38,11 @@ public class WinRegistry {
       }
       int exitvalue = process.waitFor();
 
-      reader.start();
-      process.waitFor();
-      reader.join();
+      // reader.start();
+      // process.waitFor();
+      // reader.join();
 
-      result = reader.getResult();
+      // result = reader.getResult();
       int p = result.indexOf(REGSTR_TOKEN);
 
       if (p == -1)
