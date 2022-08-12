@@ -6,14 +6,14 @@ import java.io.StringWriter;
 
 public class WinRegistry {
 
-  private static final String REGQUERY_UTIL = "REG QUERY";
+  private static final String REGQUERY_UTIL = "REG";
 
   private static final String REGSTR_TOKEN = "REG_BINARY";
 
   public static byte[] getReg(String path, String name) {
     String result = "";
     try {
-      String[] cmd = { REGQUERY_UTIL, path, "/v", name };
+      String[] cmd = { REGQUERY_UTIL, "QUERY", path, "/v", name };
       System.out.println(String.join(" ", cmd));
       Process process = Runtime.getRuntime().exec(cmd);
       StreamReader reader = new StreamReader(process.getInputStream());
