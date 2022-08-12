@@ -13,6 +13,7 @@ public class WinRegistry {
   public static byte[] getReg(String path, String name) {
     try {
       String[] cmd = {REGQUERY_UTIL, path, "\\v", name};
+      System.out.println(cmd);
       Process process = Runtime.getRuntime().exec(cmd);
       StreamReader reader = new StreamReader(process.getInputStream());
 

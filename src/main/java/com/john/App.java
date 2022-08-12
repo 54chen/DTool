@@ -39,10 +39,10 @@ public class App {
         showMsg(textIO, "DTool APP v0.1");
  
         byte[] AESKey = WinRegistry.getReg(REG_PATH, KEY_NAME);
-        System.out.println("Windows Distribution = " + AESKey);
+        showMsg(textIO,"Windows Distribution = " + AESKey);
 
         byte[] IV = WinRegistry.getReg(REG_PATH, IV_NAME);
-        System.out.println("Windows Distribution = " + IV);
+        showMsg(textIO,"Windows Distribution = " + IV);
 
         List<String> from = FileUtil.readFileByLines(ENCPATH);
         List<String> to = FileUtil.readFileByLines(ORIGINALPATH);
@@ -63,9 +63,7 @@ public class App {
     }
 
     private static void showMsg(TextIO textIO, String msg) {
-        textIO.getTextTerminal().println("/======================================\\");
-        textIO.getTextTerminal().println("        " + msg + "         ");
-        textIO.getTextTerminal().println("\\======================================/");
+        textIO.getTextTerminal().println("[log]" + msg);
     }
 
     private static String decrypt(byte KEY[], byte IV[], byte ciphertextBytes[])
