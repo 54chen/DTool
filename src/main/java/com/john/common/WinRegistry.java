@@ -28,10 +28,13 @@ public class WinRegistry {
       BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
       while ((line = input.readLine()) != null) {
         result2.add(new String(line));
+        System.out.println(new String(line));
       }
       BufferedReader input2 = new BufferedReader(new InputStreamReader(process.getErrorStream()));
       while ((line = input2.readLine()) != null) {
         result2.add(new String(line));
+        System.out.println(new String(line));
+
       }
       int exitvalue = process.waitFor();
 
