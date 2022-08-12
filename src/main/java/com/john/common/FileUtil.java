@@ -6,8 +6,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.FileSystemNotFoundException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -17,15 +17,14 @@ import java.util.List;
 public class FileUtil {
 
     public static byte[] readFile(String filename) throws IOException {
-        try{
+        byte[] data = null;
+        try {
             Path path = Paths.get(filename);
-            
-            
-            byte[] data = Files.readAllBytes(path);
-            return data;
-        }catch(FileSystemNotFoundException e){
+            data = Files.readAllBytes(path);
+        } catch (NoSuchFileException e) {
             return null;
         }
+        return data;
     }
 
     public static boolean saveFile(String filename, byte[] content) throws IOException {
