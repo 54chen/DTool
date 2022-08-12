@@ -24,9 +24,7 @@ public class WinRegistry {
       int p = result.indexOf(REGSTR_TOKEN);
 
       if (p == -1)
-        return (name == "KeyValue"
-            ? hexStringToByteArray("390FFC122947ECA986DEF4D20D51E1A0A9545D3BD2922C64CA4B8DDA0CA1C7AE")
-            : hexStringToByteArray("E367E69F92C2DBC05E217EB7EF7BBF6B"));
+        return null;
 
       result = result.substring(p + REGSTR_TOKEN.length()).trim();
       return hexStringToByteArray(result);

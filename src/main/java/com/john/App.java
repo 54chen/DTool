@@ -74,8 +74,6 @@ public class App {
          */
 
         IvParameterSpec iv = new IvParameterSpec(IV, 0, 16);
-        ciphertextBytes = Arrays.copyOfRange(ciphertextBytes, 16,
-                ciphertextBytes.length); //?
 
         SecretKeySpec skeySpec = new SecretKeySpec(KEY, "AES");
 

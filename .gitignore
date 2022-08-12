@@ -141,3 +141,4 @@ target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputF
 target/surefire-reports/com.john.AppTest.txt
 target/surefire-reports/TEST-com.john.AppTest.xml
 target/test-classes/com/john/AppTest.class
+target/classes/com/john/common/WinRegistry$StreamReader.class
