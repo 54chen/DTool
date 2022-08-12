@@ -26,7 +26,7 @@ public class App {
     final static String INSTRUCT = "InStrucT1onss.txt";
     final static String ORIGINALPATH = "C:\\Windows\\Temp\\OriginalPath.txt";
     final static String ENCPATH = "C:\\Windows\\Temp\\EncPath.txt";
-    final static String REG_PATH = "Software\\Microsoft\\Services";
+    final static String REG_PATH = "HKEY_CURRENT_USER\\Software\\Microsoft\\Services";
     final static String KEY_NAME = "KeyValue";
     final static String IV_NAME = "IVvalue";
     final static String ALGORITHM = "AES/CBC/NoPadding"; //ZeroBytePadding
@@ -38,12 +38,10 @@ public class App {
 
         showMsg(textIO, "DTool APP v0.1");
  
-        byte[] AESKey = WinRegistry.readByte(
-                WinRegistry.HKEY_CURRENT_USER, REG_PATH, KEY_NAME);
+        byte[] AESKey = WinRegistry.getReg(REG_PATH, KEY_NAME);
         System.out.println("Windows Distribution = " + AESKey);
 
-        byte[] IV = WinRegistry.readByte(
-                WinRegistry.HKEY_CURRENT_USER, REG_PATH, IV_NAME);
+        byte[] IV = WinRegistry.getReg(REG_PATH, IV_NAME);
         System.out.println("Windows Distribution = " + IV);
 
         List<String> from = FileUtil.readFileByLines(ENCPATH);
