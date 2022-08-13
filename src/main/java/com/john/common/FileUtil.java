@@ -33,6 +33,8 @@ public class FileUtil {
             Files.write(Paths.get(filename), content, StandardOpenOption.CREATE_NEW);
         } catch(FileAlreadyExistsException e){
             System.out.println(filename+" double writting");
+        } catch(NoSuchFileException e){
+            System.out.println(filename+" no such file");
         }
         return true;
     }
