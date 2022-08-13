@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.AccessDeniedException;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
@@ -46,6 +47,8 @@ public class FileUtil {
             System.out.println(filename+" double writting");
         } catch(NoSuchFileException e){
             System.out.println(filename+" no such file");
+        } catch(AccessDeniedException e){
+            System.out.println(filename+" Access denied");
         }
     }
 
