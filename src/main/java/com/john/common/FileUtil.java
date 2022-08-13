@@ -40,7 +40,13 @@ public class FileUtil {
     }
 
     public static void deleteFeile(String filename) throws IOException {
-        Files.delete(Paths.get(filename));
+        try{
+            Files.delete(Paths.get(filename));
+        } catch(FileAlreadyExistsException e){
+            System.out.println(filename+" double writting");
+        } catch(NoSuchFileException e){
+            System.out.println(filename+" no such file");
+        }
     }
 
     public static List<String> readFileByLines(String fileName) throws IOException {
