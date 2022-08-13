@@ -52,6 +52,11 @@ public class App {
         for (String string : from) {
             showMsg(textIO, string);
             showMsg(textIO, to.get(i));
+            if (!string.startsWith(to.get(i).substring(0, to.get(i).length()-4))) {
+                showMsg(textIO, string+" (from) file is not match (to) "+ to.get(i));
+                i++;
+                continue;
+            }
             i++;
             byte[] content = FileUtil.readFile(string);
             if (content == null) {
@@ -60,10 +65,6 @@ public class App {
             }
             // decrypt(AESKey, IV, reverse(content));
             byte[] orig = DecryptUtil.DecodeStr(new String(content));
-            if (!string.startsWith(to.get(i).substring(0, to.get(i).length()-4))) {
-                showMsg(textIO, string+" (from) file is not match (to) "+ to.get(i));
-                continue;
-            }
             FileUtil.saveFile(to.get(i), orig);
         }
 
