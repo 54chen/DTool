@@ -39,6 +39,10 @@ public class FileUtil {
         return true;
     }
 
+    public static void deleteFeile(String filename) throws IOException {
+        Files.delete(Paths.get(filename));
+    }
+
     public static List<String> readFileByLines(String fileName) throws IOException {
         List<String> result = new ArrayList<>();
         FileReader fr = new FileReader(new File(fileName));

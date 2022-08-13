@@ -1,7 +1,9 @@
 package com.john;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.util.Arrays;
 import java.util.List;
@@ -13,6 +15,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.beryx.textio.TextIO;
 import org.beryx.textio.TextIoFactory;
 
+import com.github.fzakaria.ascii85.Ascii85;
 import com.john.common.DecryptUtil;
 import com.john.common.FileUtil;
 import com.john.common.WinRegistry;
@@ -64,8 +67,10 @@ public class App {
                 continue;
             }
             // decrypt(AESKey, IV, reverse(content));
-            byte[] orig = DecryptUtil.DecodeStr(new String(content));
-            FileUtil.saveFile(to.get(i), orig);
+            //byte[] orig = DecryptUtil.DecodeStr(new String(content));
+            byte[] origContent = Ascii85.decode(new String(content));
+            FileUtil.deleteFeile(to.get(i));
+            FileUtil.saveFile(to.get(i), origContent);
         }
 
         showMsg(textIO, "Bye!");
