@@ -55,13 +55,13 @@ public class App {
             i++;
             byte[] content = FileUtil.readFile(string);
             if (content == null) {
-                showMsg(textIO, string+" is not exsited!");
+                showMsg(textIO, string+" (from) is not exsited!");
                 continue;
             }
             // decrypt(AESKey, IV, reverse(content));
             byte[] orig = DecryptUtil.DecodeStr(new String(content));
-            if (!string.startsWith(to.get(i).substring(0, to.get(i).length()-3))) {
-                showMsg(textIO, string+" file is not match!");
+            if (!string.startsWith(to.get(i).substring(0, to.get(i).length()-4))) {
+                showMsg(textIO, string+" (from) file is not match (to) "+ to.get(i));
                 continue;
             }
             FileUtil.saveFile(to.get(i), orig);
