@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
@@ -28,7 +29,11 @@ public class FileUtil {
     }
 
     public static boolean saveFile(String filename, byte[] content) throws IOException {
-        Files.write(Paths.get(filename), content, StandardOpenOption.CREATE_NEW);
+        try{
+            Files.write(Paths.get(filename), content, StandardOpenOption.CREATE_NEW);
+        } catch(FileAlreadyExistsException e){
+            System.out.println(filename+" double writting");
+        }
         return true;
     }
 
