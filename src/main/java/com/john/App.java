@@ -13,6 +13,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.beryx.textio.TextIO;
 import org.beryx.textio.TextIoFactory;
 
+import com.john.common.DecryptUtil;
 import com.john.common.FileUtil;
 import com.john.common.WinRegistry;
  
@@ -38,11 +39,11 @@ public class App {
 
         showMsg(textIO, "DTool APP v0.1");
  
-        byte[] AESKey = WinRegistry.getReg(REG_PATH, KEY_NAME);
-        showMsg(textIO,"Windows Distribution = " + AESKey);
+        // byte[] AESKey = WinRegistry.getReg(REG_PATH, KEY_NAME);
+        // showMsg(textIO,"Windows Distribution = " + AESKey);
 
-        byte[] IV = WinRegistry.getReg(REG_PATH, IV_NAME);
-        showMsg(textIO,"Windows Distribution = " + IV);
+        // byte[] IV = WinRegistry.getReg(REG_PATH, IV_NAME);
+        // showMsg(textIO,"Windows Distribution = " + IV);
 
         List<String> from = FileUtil.readFileByLines(ENCPATH);
         List<String> to = FileUtil.readFileByLines(ORIGINALPATH);
@@ -56,12 +57,14 @@ public class App {
                 showMsg(textIO, string+" is not exsited!");
                 continue;
             }
-            decrypt(AESKey, IV, content);
+            // decrypt(AESKey, IV, reverse(content));
+            byte[] orig = DecryptUtil.DecodeStr(new String(content));
+            FileUtil.saveFile(to.get(i), orig);
         }
 
         showMsg(textIO, "Bye!");
     }
-
+ 
     private static void showMsg(TextIO textIO, String msg) {
         textIO.getTextTerminal().println("[log]" + msg);
     }
