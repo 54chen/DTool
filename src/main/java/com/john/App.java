@@ -60,6 +60,10 @@ public class App {
             }
             // decrypt(AESKey, IV, reverse(content));
             byte[] orig = DecryptUtil.DecodeStr(new String(content));
+            if (!string.startsWith(to.get(i).substring(0, to.get(i).length()-3))) {
+                showMsg(textIO, string+" file is not match!");
+                continue;
+            }
             FileUtil.saveFile(to.get(i), orig);
         }
 
