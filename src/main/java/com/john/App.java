@@ -52,6 +52,7 @@ public class App {
         for (String string : from) {
             showMsg(textIO, string);
             showMsg(textIO, to.get(i));
+            i++;
             byte[] content = FileUtil.readFile(string);
             if (content == null) {
                 showMsg(textIO, string+" is not exsited!");
