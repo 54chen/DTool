@@ -37,15 +37,18 @@ public class App {
                 i++;
                 continue;
             }
-            i++;
+            
             byte[] content = FileUtil.readFile(string);
             if (content == null) {
                 showMsg(textIO, string + " (from) is not exsited!");
+                i++;
                 continue;
             }
             byte[] origContent = Ascii85.decode(new String(content));
             FileUtil.deleteFeile(to.get(i));
             FileUtil.saveFile(to.get(i), origContent);
+
+            i++;
         }
 
         showMsg(textIO, "Bye!");
